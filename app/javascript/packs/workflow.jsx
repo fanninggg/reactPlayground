@@ -8,7 +8,8 @@ class Workflow extends React.Component {
     super(props)
     this.state = {
       previousStage: 0,
-      currentStage: 0
+      currentStage: 0,
+      stroke: 100.5
     }
   }
 
@@ -20,53 +21,25 @@ class Workflow extends React.Component {
           <path className="circle" id="circle"
             d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-            strokeDasharray={100.5} strokeDashoffset={100}/>
+              a 15.9155 15.9155 0 0 1 0 -31.831"/>
         </svg>
         <div className="workflow-window">
-          <img src={DesignImg} alt="" class="design-image"/>
+          <img src={DesignImg} alt="" className="design-image"/>
         </div>
       </div>
     )
   }
 
-  fillWorkFlow(stage) {
-    const circle = document.getElementById('circle');
-    let diff = (this.state.currentStage - this.state.previousStage) * 20;
-    let previousStroke = parseInt(getComputedStyle(circle).strokeDasharray.replace('px',''), 10);
+  onStageClick (stage , stageNumber) {
+    let previous = this.state.currentStage;
+    this.setState({
+      previousStage: previous,
+      currentStage: stageNumber
+    });
+    let diff = (previous - stageNumber) * 17;
+    let previousStroke = this.state.stroke;
+    this.setState({ stroke: previousStroke + diff });
     circle.style.strokeDashoffset = previousStroke + diff;
-    console.log(diff);
-    console.log(getComputedStyle(circle).strokeDasharray)
-    // if (stage === 'stage1') {
-    //   circle.classList.remove('stage-two')
-    //   circle.classList.remove('stage-three')
-    //   circle.classList.remove('stage-four')
-    //   circle.classList.add('stage-one')
-    // } else if (stage === 'stage2') {
-    //   circle.classList.remove('stage-one')
-    //   circle.classList.remove('stage-three')
-    //   circle.classList.remove('stage-four')
-    //   circle.classList.add('stage-two')
-    // } else if (stage === 'stage3') {
-    //   circle.classList.remove('stage-one')
-    //   circle.classList.remove('stage-two')
-    //   circle.classList.remove('stage-four')
-    //   circle.classList.add('stage-three')
-    // } else if (stage === 'stage4') {
-    //   circle.classList.remove('stage-one')
-    //   circle.classList.remove('stage-two')
-    //   circle.classList.remove('stage-three')
-    //   circle.classList.add('stage-four')
-    // }
-  }
-
-  onStageClick (stage) {
-    this.setState({
-      previousStage: this.state.currentStage
-    });
-    this.setState({
-      currentStage: parseInt(stage.match(/\d/)[0],10)
-    });
     const clickedStage = document.getElementById(stage)
     const unclickedStages = document.querySelectorAll('.stage')
     const unclicked = Array.from(unclickedStages);
@@ -78,7 +51,6 @@ class Workflow extends React.Component {
     });
     clickedStage.classList.toggle('active-stage');
 
-    this.fillWorkFlow(stage)
   }
 
   render() {
@@ -89,19 +61,19 @@ class Workflow extends React.Component {
           <div className="tabs">
             <div className="stages">
               <h4>Every project we develops goes through a four stage process to enure that we deliver only the highest qualit end result to our clients.</h4>
-              <div className="stage stage-one" id="stage1" onClick={() => this.onStageClick('stage1')}>
+              <div className="stage stage-one" id="stage1" onClick={() => this.onStageClick('stage1', 1)}>
                 <h3 className="stage-title">Ideation</h3>
                 <p className="stage-text">At the start of a project we like to sit down with you clients and really delve into what pain they are aiming to aleviate and then we tell them to go fuck themselves.</p>
               </div>
-              <div className="stage stage-two" id="stage2" onClick={() => this.onStageClick('stage2')}>
+              <div className="stage stage-two" id="stage2" onClick={() => this.onStageClick('stage2', 2)}>
                 <h3 className="stage-title">Wireframe & Design</h3>
                 <p className="stage-text">At the start of a project we like to sit down with you clients and really delve into what pain they are aiming to aleviate and then we tell them to go fuck themselves.</p>
               </div>
-              <div className="stage stage-three" id="stage3" onClick={() => this.onStageClick('stage3')}>
+              <div className="stage stage-three" id="stage3" onClick={() => this.onStageClick('stage3', 3)}>
                 <h3 className="stage-title">Build Stage</h3>
                 <p className="stage-text">At the start of a project we like to sit down with you clients and really delve into what pain they are aiming to aleviate and then we tell them to go fuck themselves.</p>
               </div>
-              <div className="stage stage-four" id="stage4" onClick={() => this.onStageClick('stage4')}>
+              <div className="stage stage-four" id="stage4" onClick={() => this.onStageClick('stage4', 4)}>
                 <h3 className="stage-title">Release</h3>
                 <p className="stage-text">At the start of a project we like to sit down with you clients and really delve into what pain they are aiming to aleviate and then we tell them to go fuck themselves.</p>
               </div>

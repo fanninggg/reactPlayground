@@ -41,42 +41,6 @@ body {
   background-color: #fff;
 }
 
-@keyframes dashone {
-  from {
-    stroke-dasharray: 100.5;
-  }
-  to {
-    stroke-dasharray: 116.5;
-  }
-}
-
-@keyframes dashtwo {
-  from {
-    stroke-dasharray: 116.5;
-  }
-  to {
-    stroke-dasharray: 133.5;
-  }
-}
-
-@keyframes dashthree {
-  from {
-    stroke-dasharray: 133.5;
-  }
-  to {
-    stroke-dasharray: 150.25;
-  }
-}
-
-@keyframes dashfour {
-  from {
-    stroke-dasharray: 150.25;
-  }
-  to {
-    stroke-dasharray: 167;
-  }
-}
-
 .design-image {
   width: 250px;
   position: absolute;
@@ -87,37 +51,10 @@ body {
 .circle {
   stroke: #4CC790;
   fill: none;
-  // stroke-dasharray: 100.5;
-  // stroke-dashoffset: 100;
-  // animation: dash 5s linear;
+  stroke-dasharray: 100.5;
+  stroke-dashoffset: 100;
   transition: all 3s ease-in-out;
   stroke-linecap: round;
-}
-
-// @keyframes progress {
-//   0% {
-//     stroke-dasharray: 0, 100;
-//   }
-// }
-
-.stage-one {
-  stroke-dasharray: 116.5;
-  animation: dashone 3s ease-in-out alternate;
-}
-
-.stage-two {
-  stroke-dasharray: 133.5;
-  animation: dashtwo 3s ease-in-out alternate;
-}
-
-.stage-three {
-  stroke-dasharray: 150.25;
-  animation: dashthree 3s ease-in-out alternate;
-}
-
-.stage-four {
-  stroke-dasharray: 167;
-  animation: dashfour 3s ease-in-out alternate;
 }
 
 // *********************** Tabs ******************************
