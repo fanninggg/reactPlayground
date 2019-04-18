@@ -6,18 +6,18 @@ import DesignImg from 'images/design.png'
 class Workflow extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      previousStage: '',
+      currentStage: ''
+    }
   }
 
-  state = {
-    test: ''
-  }
 
   workflowGraphic() {
     return(
       <div className="graphic-holder">
         <svg viewBox="0 0 36 36" className="circular-chart">
           <path className="circle" id="circle"
-            strokeDasharray="0.1, 100"
             d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -31,35 +31,42 @@ class Workflow extends React.Component {
   }
 
   fillWorkFlow(stage) {
-    if (stage == 'stage1') {
-      document.getElementById('circle').classList.remove('stage-two')
-      document.getElementById('circle').classList.remove('stage-three')
-      document.getElementById('circle').classList.remove('stage-four')
-      document.getElementById('circle').classList.add('stage-one')
-    } else if (stage == 'stage2') {
-      document.getElementById('circle').classList.remove('stage-one')
-      document.getElementById('circle').classList.remove('stage-three')
-      document.getElementById('circle').classList.remove('stage-four')
-      document.getElementById('circle').classList.add('stage-two')
-    } else if (stage == 'stage3') {
-      document.getElementById('circle').classList.remove('stage-one')
-      document.getElementById('circle').classList.remove('stage-two')
-      document.getElementById('circle').classList.remove('stage-four')
-      document.getElementById('circle').classList.add('stage-three')
-    } else if (stage == 'stage4') {
-      document.getElementById('circle').classList.remove('stage-one')
-      document.getElementById('circle').classList.remove('stage-two')
-      document.getElementById('circle').classList.remove('stage-three')
-      document.getElementById('circle').classList.add('stage-four')
+    const circle = document.getElementById('circle');
+    if (stage === 'stage1') {
+      circle.classList.remove('stage-two')
+      circle.classList.remove('stage-three')
+      circle.classList.remove('stage-four')
+      circle.classList.add('stage-one')
+    } else if (stage === 'stage2') {
+      circle.classList.remove('stage-one')
+      circle.classList.remove('stage-three')
+      circle.classList.remove('stage-four')
+      circle.classList.add('stage-two')
+    } else if (stage === 'stage3') {
+      circle.classList.remove('stage-one')
+      circle.classList.remove('stage-two')
+      circle.classList.remove('stage-four')
+      circle.classList.add('stage-three')
+    } else if (stage === 'stage4') {
+      circle.classList.remove('stage-one')
+      circle.classList.remove('stage-two')
+      circle.classList.remove('stage-three')
+      circle.classList.add('stage-four')
     }
   }
 
-  onStageClick(stage) {
+  onStageClick (stage) {
+    this.setState({
+      previousStage: this.state.currentStage
+    });
+    this.setState({
+      currentStage: parseInt(stage.match(/\d/)[0],10)
+    });
     const clickedStage = document.getElementById(stage)
     const unclickedStages = document.querySelectorAll('.stage')
     const unclicked = Array.from(unclickedStages);
-    const clickedIndex = unclicked.indexOf(clickedStage)
-    delete unclicked[clickedIndex]
+    const clickedIndex = unclicked.indexOf(clickedStage);
+    unclicked.splice(clickedIndex, 1);
 
     Array.prototype.forEach.call(unclicked, stage => {
       stage.classList.remove('active-stage')
