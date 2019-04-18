@@ -1,0 +1,104 @@
+body {
+  font-family: sans-serif;
+}
+
+.workflow-container {
+  display: flex;
+  width: 100vw;
+  height: 1000px;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F7FB;
+}
+
+.workflow-holder {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.graphic-holder {
+  height: 500px;
+  width: 500px;
+  position: relative;
+  transform: rotate(-30deg);
+  margin-right: 50px;
+}
+
+.workflow-svg {
+  height: 500px;
+  width: auto;
+}
+
+.workflow-window {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  background-color: #fff;
+}
+
+.circle {
+  stroke: #4CC790;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.stage-one {
+  stroke-dasharray: 16.75, 100;
+  animation: progress 3s ease-in-out;
+}
+
+.stage-two {
+  stroke-dasharray: 33.5, 100;
+  animation: progress 3s ease-in-out;
+}
+
+.stage-three {
+  stroke-dasharray: 50.25, 100;
+  animation: progress 3s ease-in-out;
+}
+
+.stage-four {
+  stroke-dasharray: 67, 100;
+  animation: progress 3s ease-in-out;
+}
+
+// *********************** Tabs ******************************
+
+.stages {
+  width: 300px;
+  height: 500px;
+  color: rgba(80,80,80,1);
+}
+
+.stage {
+  max-height: 50px;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.active-stage {
+  max-height: 500px;
+  transition: max-height 1s ease-in;
+  .stage-title {
+    opacity: 1;
+  }
+}
+
+.stage-title {
+  color: rgba(80,80,80,1);
+  font-weight: bold;
+  opacity: 0.6;
+}
