@@ -81,9 +81,10 @@ body {
 .circle {
   stroke: #4CC790;
   fill: none;
-  stroke-dasharray: 100.5;
-  stroke-dashoffset: 100;
+  // stroke-dasharray: 100.5;
+  // stroke-dashoffset: 100;
   // animation: dash 5s linear;
+  transition: all 3s ease-in-out;
   stroke-linecap: round;
 }
 

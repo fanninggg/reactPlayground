@@ -6,8 +6,8 @@ class Workflow extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      previousStage: '',
-      currentStage: ''
+      previousStage: 0,
+      currentStage: 0
     }
   }
 
@@ -20,7 +20,7 @@ class Workflow extends React.Component {
             d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"
-            />
+            strokeDasharray={100.5} strokeDashoffset={100}/>
         </svg>
         <div className="workflow-window"></div>
 
@@ -30,27 +30,32 @@ class Workflow extends React.Component {
 
   fillWorkFlow(stage) {
     const circle = document.getElementById('circle');
-    if (stage === 'stage1') {
-      circle.classList.remove('stage-two')
-      circle.classList.remove('stage-three')
-      circle.classList.remove('stage-four')
-      circle.classList.add('stage-one')
-    } else if (stage === 'stage2') {
-      circle.classList.remove('stage-one')
-      circle.classList.remove('stage-three')
-      circle.classList.remove('stage-four')
-      circle.classList.add('stage-two')
-    } else if (stage === 'stage3') {
-      circle.classList.remove('stage-one')
-      circle.classList.remove('stage-two')
-      circle.classList.remove('stage-four')
-      circle.classList.add('stage-three')
-    } else if (stage === 'stage4') {
-      circle.classList.remove('stage-one')
-      circle.classList.remove('stage-two')
-      circle.classList.remove('stage-three')
-      circle.classList.add('stage-four')
-    }
+    let diff = (this.state.currentStage - this.state.previousStage) * 20;
+    let previousStroke = parseInt(getComputedStyle(circle).strokeDasharray.replace('px',''), 10);
+    circle.style.strokeDashoffset = previousStroke + diff;
+    console.log(diff);
+    console.log(getComputedStyle(circle).strokeDasharray)
+    // if (stage === 'stage1') {
+    //   circle.classList.remove('stage-two')
+    //   circle.classList.remove('stage-three')
+    //   circle.classList.remove('stage-four')
+    //   circle.classList.add('stage-one')
+    // } else if (stage === 'stage2') {
+    //   circle.classList.remove('stage-one')
+    //   circle.classList.remove('stage-three')
+    //   circle.classList.remove('stage-four')
+    //   circle.classList.add('stage-two')
+    // } else if (stage === 'stage3') {
+    //   circle.classList.remove('stage-one')
+    //   circle.classList.remove('stage-two')
+    //   circle.classList.remove('stage-four')
+    //   circle.classList.add('stage-three')
+    // } else if (stage === 'stage4') {
+    //   circle.classList.remove('stage-one')
+    //   circle.classList.remove('stage-two')
+    //   circle.classList.remove('stage-three')
+    //   circle.classList.add('stage-four')
+    // }
   }
 
   onStageClick (stage) {
