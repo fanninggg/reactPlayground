@@ -41,37 +41,76 @@ body {
   background-color: #fff;
 }
 
-.circle {
-  stroke: #4CC790;
-  fill: none;
-  stroke-width: 1;
-  stroke-linecap: round;
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
+@keyframes dashone {
+  from {
+    stroke-dasharray: 100.5;
+  }
+  to {
+    stroke-dasharray: 116.5;
   }
 }
 
+@keyframes dashtwo {
+  from {
+    stroke-dasharray: 116.5;
+  }
+  to {
+    stroke-dasharray: 133.5;
+  }
+}
+
+@keyframes dashthree {
+  from {
+    stroke-dasharray: 133.5;
+  }
+  to {
+    stroke-dasharray: 150.25;
+  }
+}
+
+@keyframes dashfour {
+  from {
+    stroke-dasharray: 150.25;
+  }
+  to {
+    stroke-dasharray: 167;
+  }
+}
+
+
+.circle {
+  stroke: #4CC790;
+  fill: none;
+  stroke-dasharray: 100.5;
+  stroke-dashoffset: 100;
+  // animation: dash 5s linear;
+  stroke-linecap: round;
+}
+
+// @keyframes progress {
+//   0% {
+//     stroke-dasharray: 0, 100;
+//   }
+// }
+
 .stage-one {
-  stroke-dasharray: 16.75, 100;
-  animation: progress 3s ease-in-out;
+  stroke-dasharray: 116.5;
+  animation: dashone 3s ease-in-out alternate;
 }
 
 .stage-two {
-  stroke-dasharray: 33.5, 100;
-  animation: progress 3s ease-in-out;
+  stroke-dasharray: 133.5;
+  animation: dashtwo 3s ease-in-out alternate;
 }
 
 .stage-three {
-  stroke-dasharray: 50.25, 100;
-  animation: progress 3s ease-in-out;
+  stroke-dasharray: 150.25;
+  animation: dashthree 3s ease-in-out alternate;
 }
 
 .stage-four {
-  stroke-dasharray: 67, 100;
-  animation: progress 3s ease-in-out;
+  stroke-dasharray: 167;
+  animation: dashfour 3s ease-in-out alternate;
 }
 
 // *********************** Tabs ******************************
