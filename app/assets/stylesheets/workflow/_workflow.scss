@@ -22,7 +22,7 @@ body {
   height: 500px;
   width: 500px;
   position: relative;
-  transform: rotate(-30deg);
+  // transform: rotate(-30deg);
   margin-right: 50px;
 }
 
@@ -77,6 +77,12 @@ body {
   }
 }
 
+.design-image {
+  width: 250px;
+  position: absolute;
+  bottom: calc(50% - 56px);
+  left: calc(50% - 125px);
+}
 
 .circle {
   stroke: #4CC790;

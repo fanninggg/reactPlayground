@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import DesignImg from 'images/design.png'
 
 class Workflow extends React.Component {
   constructor(props) {
@@ -22,8 +23,9 @@ class Workflow extends React.Component {
               a 15.9155 15.9155 0 0 1 0 -31.831"
             strokeDasharray={100.5} strokeDashoffset={100}/>
         </svg>
-        <div className="workflow-window"></div>
-
+        <div className="workflow-window">
+          <img src={DesignImg} alt="" class="design-image"/>
+        </div>
       </div>
     )
   }
