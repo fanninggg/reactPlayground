@@ -29,7 +29,6 @@ class Workflow extends React.Component {
   }
 
   fillWorkFlow(stage) {
-    let stageNumber = parseInt(stage.match(/\d/)[0],10);
     const circle = document.getElementById('circle');
     if (stage === 'stage1') {
       circle.classList.remove('stage-two')
@@ -37,11 +36,6 @@ class Workflow extends React.Component {
       circle.classList.remove('stage-four')
       circle.classList.add('stage-one')
     } else if (stage === 'stage2') {
-      if (stageNumber < 2) {
-        circle.style.animationDirection = 'reverse';
-      } else {
-        circle.style.animationDirection = 'normal';
-      }
       circle.classList.remove('stage-one')
       circle.classList.remove('stage-three')
       circle.classList.remove('stage-four')
@@ -60,13 +54,12 @@ class Workflow extends React.Component {
   }
 
   onStageClick (stage) {
-    console.log('lucien sucks')
-    console.log(stage)
-    console.log(this.state)
-    this.setState = {
-      currentStage: 'test'
-      // currentStage: parseInt(stage.match(/\d/)[0],10)
-    }
+    this.setState({
+      previousStage: this.state.currentStage
+    });
+    this.setState({
+      currentStage: parseInt(stage.match(/\d/)[0],10)
+    });
     const clickedStage = document.getElementById(stage)
     const unclickedStages = document.querySelectorAll('.stage')
     const unclicked = Array.from(unclickedStages);
