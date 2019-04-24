@@ -13,7 +13,6 @@ class Workflow extends React.Component {
     }
   }
 
-
   workflowGraphic() {
     return(
       <div className="graphic-holder">
@@ -36,7 +35,7 @@ class Workflow extends React.Component {
       previousStage: previous,
       currentStage: stageNumber
     });
-    let diff = (previous - stageNumber) * 17;
+    let diff = (previous - stageNumber) * 25;
     let previousStroke = this.state.stroke;
     this.setState({ stroke: previousStroke + diff });
     circle.style.strokeDashoffset = previousStroke + diff;
