@@ -49,12 +49,16 @@ body {
 }
 
 .circle {
-  stroke: #4CC790;
+  stroke: #734EEB;
   fill: none;
   stroke-dasharray: 100.5;
   stroke-dashoffset: 100;
   transition: all 3s ease-in-out;
   stroke-linecap: round;
+}
+
+.circular-chart {
+  transform: rotate(0deg);
 }
 
 // *********************** Tabs ******************************
