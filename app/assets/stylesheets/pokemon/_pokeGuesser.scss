@@ -1,0 +1,98 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.wtpContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://external-preview.redd.it/e5zoQw-hgw-LCjdhC_4G8IAcHxex5pzda_BD_FPTcBY.png?auto=webp&s=c0b96b5ec20010a15864b8a0c9b202c119e52fe8);
+  background-size: cover;
+}
+
+.pokeContainer {
+  text-align: center;
+  padding: 100px;
+}
+
+.newGameButton {
+  background-color: #3B4CCA;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  top: 600px;
+  left: 310px;
+}
+
+.hiddenPokemon {
+  width: 300px;
+  filter: brightness(0%);
+  position: absolute;
+  left: 270px;
+  top: 250px;
+}
+
+.reveal {
+  filter: brightness(100%);
+  transition: filter 1s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+
+.title-text {
+  color: #FFDF01;
+  font-size: 50px;
+  font-family: "Pokemon Solid";
+  // text-shadow: -5px 0 #216093, 0 5px #216093, 5px 0 #216093, 0 -5px #216093;
+}
+
+.button {
+  background-color: #FFDF01;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 2px solid #3B4CCA;
+  text-align: center;
+}
+
+.wrong {
+  cursor: not-allowed;
+  background-color: rgba(150,150,150,1);
+  border: 2px solid rgba(100,100,100,1);
+}
+
+.inactive {
+  display: none;
+}
+
+.gameMessageHolder {
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  top: 140px;
+  left: 320px;
+  text-align: center;
+}
+
+.pokemonOfficialImg {
+  width: 300px;
+}
+
+.pokemonName {
+  font-family: "Pokemon Solid";
+  font-size: 40px;
+  color: #ffcb06;
+}
