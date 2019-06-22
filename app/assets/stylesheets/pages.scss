@@ -1,4 +1,9 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "workflow/workflow";
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url(fonts/Pokemon-Solid.ttf) format("truetype");
+}
+@import "pokemon/pokeGuesser";
+@import "pokemon/pokeBall";

@@ -3,16 +3,27 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import Skills from "./workflow";
+import PokeGuesser from "./pokemon.jsx";
+import PokeBall from "./pokeball.jsx";
 
+var pokemonDiv = document.getElementById('pokemon')
 
-var skillsDiv = document.getElementById('skills')
-
-if (skillsDiv) {
+if (pokemonDiv) {
   document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
-      <Skills />,
-      skillsDiv.appendChild(document.createElement('div')),
+      <PokeGuesser />,
+      pokemonDiv.appendChild(document.createElement('div')),
+    )
+  })
+}
+
+var pokeballDiv = document.getElementById('pokeball')
+
+if (pokeballDiv) {
+  document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(
+      <PokeBall />,
+      pokeballDiv.appendChild(document.createElement('div')),
     )
   })
 }
